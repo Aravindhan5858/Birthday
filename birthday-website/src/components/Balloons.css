@@ -1,0 +1,80 @@
+.balloons-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  animation: balloonFloat linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.balloon-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  position: relative;
+  box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.15),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.balloon-body::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid inherit;
+}
+
+.balloon-shine {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 30%;
+  height: 30%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.balloon-string {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.3);
+  margin-top: 8px;
+}
+
+@keyframes balloonFloat {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(40px) rotate(5deg);
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-20px) rotate(-3deg);
+    bottom: 120vh;
+    opacity: 0;
+  }
+}

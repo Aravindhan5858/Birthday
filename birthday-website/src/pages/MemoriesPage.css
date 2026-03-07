@@ -1,0 +1,407 @@
+.memories-page {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(160deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  padding: 3rem var(--section-padding) 4rem;
+  overflow: hidden;
+}
+
+/* Ambient glow */
+.memories-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+.memories-glow-1 {
+  width: 400px; height: 400px;
+  background: rgba(255, 107, 157, 0.12);
+  top: 10%; left: -5%;
+  animation: orbPulse 8s ease-in-out infinite;
+}
+.memories-glow-2 {
+  width: 350px; height: 350px;
+  background: rgba(196, 77, 255, 0.1);
+  bottom: 10%; right: -5%;
+  animation: orbPulse 8s ease-in-out infinite 4s;
+}
+
+.memories-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.memories-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.memories-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  background: linear-gradient(135deg, #ffd700, #ff6b9d, #c44dff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease infinite;
+}
+
+.memories-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  margin-top: 0.3rem;
+}
+
+.title-underline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  margin: 1rem auto 0;
+  border-radius: 3px;
+}
+
+/* ===== Slideshow ===== */
+.slideshow-wrapper {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(196, 77, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  max-height: 480px;
+  width: 100%;
+}
+
+.slide-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(0, 0, 0, 0.5)
+  );
+  pointer-events: none;
+}
+
+.slide-caption {
+  margin-top: 1.2rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Dots */
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.2rem;
+}
+
+.slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slide-dot.active {
+  background: var(--pink);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px var(--pink);
+}
+
+.slide-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Controls */
+.slide-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.slide-btn {
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.slide-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.slide-counter {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+/* ===== Nav ===== */
+.memories-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn-back {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.nav-btn-back:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-4px);
+}
+
+.nav-btn-next {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(196, 77, 255, 0.3);
+}
+.nav-btn-next:hover {
+  box-shadow: 0 6px 30px rgba(196, 77, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== Photo Gallery Header ===== */
+.photo-gallery-header {
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+
+.photo-gallery-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  background: linear-gradient(135deg, #4dc9f6, #ff6b9d, #ffd700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease infinite;
+  margin-bottom: 0.4rem;
+}
+
+.photo-gallery-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+/* ===== Photo Cards Grid ===== */
+.photo-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== Individual Photo Card ===== */
+.photo-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.photo-card:hover {
+  border-color: rgba(255, 107, 157, 0.4);
+  box-shadow:
+    0 12px 40px rgba(196, 77, 255, 0.15),
+    0 0 50px rgba(255, 107, 157, 0.08);
+}
+
+/* Image wrapper */
+.photo-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.photo-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover .photo-card-img {
+  transform: scale(1.08);
+}
+
+/* Hover overlay */
+.photo-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .photo-card-overlay {
+  opacity: 1;
+}
+
+.photo-card-zoom {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Tag badge */
+.photo-card-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(196, 77, 255, 0.4);
+}
+
+/* Card body */
+.photo-card-body {
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.photo-card-caption {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 300;
+  flex: 1;
+}
+
+.photo-card-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+/* Corner glow */
+.photo-card-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(196, 77, 255, 0.12) 0%, transparent 70%);
+  top: -30px;
+  left: -30px;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.photo-card:hover .photo-card-glow {
+  opacity: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .slide-img {
+    height: 320px;
+  }
+  .slide-frame {
+    max-height: 320px;
+  }
+  .photo-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .photo-card-img-wrapper {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-img {
+    height: 240px;
+  }
+  .slide-frame {
+    max-height: 240px;
+  }
+  .slide-controls {
+    gap: 1rem;
+  }
+  .photo-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .photo-card-img-wrapper {
+    height: 150px;
+  }
+  .photo-card-body {
+    padding: 0.7rem 0.8rem;
+  }
+  .photo-card-caption {
+    font-size: 0.75rem;
+  }
+}

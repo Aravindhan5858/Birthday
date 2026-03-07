@@ -1,0 +1,61 @@
+.music-player-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.music-player-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(196, 77, 255, 0.4);
+}
+
+.music-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+.music-icon.playing {
+  animation: musicBounce 0.6s infinite alternate;
+}
+
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.music-bars span {
+  display: block;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: musicBar 0.6s ease infinite alternate;
+}
+.music-bars span:nth-child(1) { height: 6px; animation-delay: 0s; }
+.music-bars span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.music-bars span:nth-child(3) { height: 8px; animation-delay: 0.3s; }
+.music-bars span:nth-child(4) { height: 14px; animation-delay: 0.45s; }
+
+@keyframes musicBar {
+  from { height: 4px; }
+  to { height: 16px; }
+}
+
+@keyframes musicBounce {
+  from { transform: scale(1) rotate(-5deg); }
+  to { transform: scale(1.15) rotate(5deg); }
+}

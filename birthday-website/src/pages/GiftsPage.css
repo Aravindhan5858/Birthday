@@ -1,0 +1,314 @@
+.gifts-page {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(160deg, #1a0533 0%, #2d1b69 40%, #0f0c29 100%);
+  padding: 3rem var(--section-padding) 4rem;
+  overflow: hidden;
+}
+
+.gifts-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.gifts-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.gifts-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  background: linear-gradient(135deg, #ffd700, #ff6b9d, #c44dff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease infinite;
+}
+
+.gifts-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  margin-top: 0.3rem;
+}
+
+.gifts-progress {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.title-underline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  margin: 1rem auto 0;
+  border-radius: 3px;
+}
+
+/* ===== Grid ===== */
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== Gift Card ===== */
+.gift-card {
+  min-height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.gift-card.opened {
+  cursor: default;
+}
+
+/* ===== Gift Box (Closed State) ===== */
+.gift-box {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gift-card:not(.opened) .gift-box:hover {
+  box-shadow: 0 12px 50px rgba(196, 77, 255, 0.3),
+    0 0 40px rgba(255, 107, 157, 0.2);
+}
+
+/* Ribbons */
+.gift-ribbon-h {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  transform: translateY(-50%);
+  opacity: 0.8;
+}
+
+.gift-ribbon-v {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 14px;
+  height: 100%;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
+
+/* Bow */
+.gift-bow {
+  position: absolute;
+  top: calc(50% - 22px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  z-index: 3;
+}
+
+.bow-loop {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid;
+  border-radius: 50% 50% 50% 0;
+  top: 6px;
+}
+.bow-left {
+  left: -2px;
+  transform: rotate(-45deg);
+}
+.bow-right {
+  right: -2px;
+  transform: rotate(45deg) scaleX(-1);
+}
+
+.bow-center {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Emoji & hint */
+.gift-box-emoji {
+  font-size: 3.5rem;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+  margin-top: 30px;
+}
+
+.gift-hint {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  z-index: 2;
+  letter-spacing: 1px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer overlay */
+.gift-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease infinite;
+}
+
+/* ===== Gift Message (Opened State) ===== */
+.gift-message {
+  width: 100%;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.gift-msg-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.gift-msg-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.gift-msg-text {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+}
+
+/* ===== Celebration Banner ===== */
+.celebration-banner {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.1);
+  animation: glow 3s ease-in-out infinite;
+}
+
+.celebration-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  background: linear-gradient(135deg, #ffd700, #ff6b9d, #c44dff, #4dc9f6);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease infinite;
+  margin-bottom: 0.8rem;
+}
+
+.celebration-sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.celebration-emojis {
+  font-size: 2rem;
+  letter-spacing: 4px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===== Nav ===== */
+.gifts-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn-back {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.nav-btn-back:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-4px);
+}
+
+.nav-btn-next {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(196, 77, 255, 0.3);
+}
+.nav-btn-next:hover {
+  box-shadow: 0 6px 30px rgba(196, 77, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .gifts-grid {
+    grid-template-columns: 1fr;
+  }
+  .gift-box, .gift-message {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift-box, .gift-message {
+    height: 240px;
+    padding: 1.2rem;
+  }
+}

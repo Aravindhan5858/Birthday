@@ -1,0 +1,159 @@
+.quotes-page {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(160deg, #1a0a2e 0%, #16213e 40%, #0f3460 100%);
+  padding: 3rem var(--section-padding) 4rem;
+  overflow: hidden;
+}
+
+.quotes-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.quotes-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.quotes-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  background: linear-gradient(135deg, #ff9ec6, #ffd700, #c44dff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease infinite;
+  margin-bottom: 0.5rem;
+}
+
+.quotes-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.title-underline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  margin: 1rem auto 0;
+  border-radius: 3px;
+}
+
+/* ===== Grid ===== */
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== Quote Card ===== */
+.quote-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.quote-card:hover {
+  border-color: rgba(255, 107, 157, 0.4);
+  box-shadow: 0 8px 40px rgba(196, 77, 255, 0.15),
+    0 0 60px rgba(255, 107, 157, 0.1);
+}
+
+.quote-emoji {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--pink);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.quote-mark-end {
+  margin-top: 0.5rem;
+}
+
+.quote-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.quote-glow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(196, 77, 255, 0.15) 0%, transparent 70%);
+  top: -30px;
+  right: -30px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ===== Nav ===== */
+.quotes-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn-back {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn-back:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-4px);
+}
+
+.nav-btn-next {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(196, 77, 255, 0.3);
+}
+
+.nav-btn-next:hover {
+  box-shadow: 0 6px 30px rgba(196, 77, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .quotes-grid {
+    grid-template-columns: 1fr;
+  }
+  .quote-card {
+    padding: 1.5rem 1.2rem;
+  }
+}

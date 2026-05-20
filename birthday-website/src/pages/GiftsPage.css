@@ -56,171 +56,200 @@
 /* ===== Grid ===== */
 .gifts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
-/* ===== Gift Card ===== */
+/* ===== Modern E-Commerce Gift Card ===== */
 .gift-card {
-  min-height: 280px;
+  height: 100%;
   perspective: 1000px;
+}
+
+.gift-card-inner {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+              0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
 }
 
-.gift-card.opened {
-  cursor: default;
+.gift-card:hover .gift-card-inner {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(196, 77, 255, 0.2),
+              0 0 60px rgba(255, 107, 157, 0.15),
+              0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-/* ===== Gift Box (Closed State) ===== */
-.gift-box {
+/* ===== Image Section ===== */
+.gift-image-section {
   position: relative;
   width: 100%;
-  height: 280px;
-  border-radius: 20px;
+  aspect-ratio: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
 }
 
-.gift-card:not(.opened) .gift-box:hover {
-  box-shadow: 0 12px 50px rgba(196, 77, 255, 0.3),
-    0 0 40px rgba(255, 107, 157, 0.2);
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
 }
 
-/* Ribbons */
-.gift-ribbon-h {
-  position: absolute;
-  top: 50%;
-  left: 0;
+.gift-image {
   width: 100%;
-  height: 14px;
-  transform: translateY(-50%);
-  opacity: 0.8;
-}
-
-.gift-ribbon-v {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 14px;
   height: 100%;
-  transform: translateX(-50%);
-  opacity: 0.8;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-/* Bow */
-.gift-bow {
-  position: absolute;
-  top: calc(50% - 22px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-  z-index: 3;
-}
-
-.bow-loop {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 3px solid;
-  border-radius: 50% 50% 50% 0;
-  top: 6px;
-}
-.bow-left {
-  left: -2px;
-  transform: rotate(-45deg);
-}
-.bow-right {
-  right: -2px;
-  transform: rotate(45deg) scaleX(-1);
-}
-
-.bow-center {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Emoji & hint */
-.gift-box-emoji {
-  font-size: 3.5rem;
-  z-index: 2;
-  animation: float 3s ease-in-out infinite;
-  margin-top: 30px;
-}
-
-.gift-hint {
-  margin-top: 12px;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 300;
-  z-index: 2;
-  letter-spacing: 1px;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* Shimmer overlay */
-.gift-shimmer {
+.gift-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.12) 45%,
-    rgba(255, 255, 255, 0.15) 50%,
-    rgba(255, 255, 255, 0.12) 55%,
-    transparent 60%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s ease infinite;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
 }
 
-/* ===== Gift Message (Opened State) ===== */
-.gift-message {
-  width: 100%;
-  height: 280px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 2rem 1.5rem;
+.gift-emoji-display {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.gift-card:hover .gift-emoji-display {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== Content Section ===== */
+.gift-content-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow-y: auto;
+  padding: 1.5rem;
+  justify-content: space-between;
 }
 
-.gift-msg-emoji {
-  font-size: 2.5rem;
-  margin-bottom: 0.6rem;
+.gift-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffd700, #ff6b9d, #c44dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
 }
 
-.gift-msg-title {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  color: var(--gold);
-  margin-bottom: 0.8rem;
-}
-
-.gift-msg-text {
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+.gift-card-description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-weight: 300;
 }
 
+/* ===== Button ===== */
+.gift-card-button {
+  background: linear-gradient(135deg, #ff6b9d, #c44dff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(196, 77, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-card-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.gift-card-button:hover:not(.opened)::before {
+  left: 100%;
+}
+
+.gift-card-button:hover:not(.opened) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(196, 77, 255, 0.6);
+}
+
+.gift-card-button:active:not(.opened) {
+  transform: translateY(0);
+}
+
+.gift-card-button.opened {
+  background: linear-gradient(135deg, #38ef7d, #11998e);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .gifts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gift-content-section {
+    padding: 1.25rem;
+  }
+
+  .gift-card-title {
+    font-size: 1.1rem;
+  }
+
+  .gift-card-description {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .gift-emoji-display {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .gifts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gift-card:hover .gift-card-inner {
+    transform: translateY(-8px);
+  }
 /* ===== Celebration Banner ===== */
 .celebration-banner {
   background: rgba(255, 255, 255, 0.05);
@@ -298,17 +327,65 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .gifts-grid {
-    grid-template-columns: 1fr;
+  .gifts-page {
+    padding: 2.5rem var(--section-padding) 3rem;
   }
-  .gift-box, .gift-message {
-    height: 250px;
+
+  .gifts-container {
+    max-width: 100%;
+  }
+
+  .gifts-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+
+  .gifts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .gift-box, .gift-message {
-    height: 240px;
-    padding: 1.2rem;
+  .gifts-page {
+    padding: 2rem var(--section-padding) 2.5rem;
+  }
+
+  .gifts-header {
+    margin-bottom: 2rem;
+  }
+
+  .gifts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gift-content-section {
+    padding: 1rem;
+  }
+
+  .gift-card-title {
+    font-size: 1rem;
+  }
+
+  .gift-card-description {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .gift-emoji-display {
+    font-size: 2.5rem;
+  }
+
+  .celebration-banner {
+    padding: 1.5rem 1rem;
+  }
+
+  .celebration-text {
+    font-size: 1.5rem;
+  }
+
+  .celebration-emojis {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
   }
 }

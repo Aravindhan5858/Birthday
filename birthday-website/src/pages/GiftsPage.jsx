@@ -31,7 +31,7 @@ const gifts = [
     id: 3,
     color: 'linear-gradient(135deg, #ffd700, #ff6f61)',
     ribbon: '#c44dff',
-    emoji: '🌟',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+4',
     image: 'https://via.placeholder.com/500x500/ffd700/ffffff?text=Wish',
     title: 'My Wish for You',
     message:
@@ -41,7 +41,7 @@ const gifts = [
     id: 4,
     color: 'linear-gradient(135deg, #f093fb, #f5576c)',
     ribbon: '#4dc9f6',
-    emoji: '👫',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+5',
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=500&fit=crop',
     title: 'Sibling Bond',
     message:
@@ -51,7 +51,7 @@ const gifts = [
     id: 5,
     color: 'linear-gradient(135deg, #00d2ff, #3a7bd5)',
     ribbon: '#ffd700',
-    emoji: '🎂',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+6',
     image: 'https://images.unsplash.com/photo-1558636508-e0db3814a69f?w=500&h=500&fit=crop',
     title: 'Birthday Crown',
     message:
@@ -61,7 +61,7 @@ const gifts = [
     id: 6,
     color: 'linear-gradient(135deg, #c44dff, #ff6b9d)',
     ribbon: '#00d2ff',
-    emoji: '🎆',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+7',
     image: 'https://images.unsplash.com/photo-1519415852116-da7d5e94fdb8?w=500&h=500&fit=crop',
     title: 'Forever & Always',
     message:
@@ -71,7 +71,7 @@ const gifts = [
     id: 7,
     color: 'linear-gradient(135deg, #f7971e, #ffd200)',
     ribbon: '#ff6b9d',
-    emoji: '☀️',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+9',
     image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=500&h=500&fit=crop',
     title: 'My Sunshine',
     message:
@@ -81,7 +81,7 @@ const gifts = [
     id: 8,
     color: 'linear-gradient(135deg, #11998e, #38ef7d)',
     ribbon: '#ffd700',
-    emoji: '🌱',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+10',
     image: 'https://via.placeholder.com/500x500/4dc9f6/ffffff?text=Letter',
     title: 'Growth Together',
     message:
@@ -91,7 +91,7 @@ const gifts = [
     id: 9,
     color: 'linear-gradient(135deg, #fc5c7d, #6a82fb)',
     ribbon: '#38ef7d',
-    emoji: '🎵',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+11',
     image: 'https://images.unsplash.com/photo-1514502519975-7ba6f284a4b0?w=500&h=500&fit=crop',
     title: 'Our Playlist',
     message:
@@ -101,7 +101,7 @@ const gifts = [
     id: 10,
     color: 'linear-gradient(135deg, #a18cd1, #fbc2eb)',
     ribbon: '#ffd700',
-    emoji: '🦋',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+12',
     image: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=500&h=500&fit=crop',
     title: 'Beautiful Soul',
     message:
@@ -111,7 +111,7 @@ const gifts = [
     id: 11,
     color: 'linear-gradient(135deg, #ff9966, #ff5e62)',
     ribbon: '#c44dff',
-    emoji: '🔥',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+13',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f70d504f0?w=500&h=500&fit=crop',
     title: 'Unstoppable You',
     message:
@@ -121,7 +121,7 @@ const gifts = [
     id: 12,
     color: 'linear-gradient(135deg, #667eea, #764ba2)',
     ribbon: '#ff9966',
-    emoji: '📖',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+14',
     image: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500&h=500&fit=crop',
     title: 'Our Story',
     message:
@@ -131,7 +131,7 @@ const gifts = [
     id: 13,
     color: 'linear-gradient(135deg, #f857a6, #ff5858)',
     ribbon: '#4dc9f6',
-    emoji: '🏠',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+15',
     image: 'https://images.unsplash.com/photo-1495949109806-8bc02ecc8dc5?w=500&h=500&fit=crop',
     title: 'Home Is You',
     message:
@@ -141,7 +141,7 @@ const gifts = [
     id: 14,
     color: 'linear-gradient(135deg, #4facfe, #00f2fe)',
     ribbon: '#f857a6',
-    emoji: '🧩',    image: 'https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=500&h=500&fit=crop',    title: 'Missing Piece',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+16',
     message:
       'You complete our family puzzle in a way no one else could. Without you, nothing makes sense. You are the piece that holds us all together. 🧩💙',
   },
@@ -151,7 +151,7 @@ const gifts = [
     ribbon: '#ffd700',
     emoji: '🌈',
     image: 'https://images.unsplash.com/photo-1509919886274-54ef83e63313?w=500&h=500&fit=crop',
-    title: 'After Every Storm',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+17',
     message:
       'You taught me that after every storm, there is a rainbow. Thank you for being my rainbow on the darkest days. I love you endlessly. 🌈🤍',
   },
@@ -161,7 +161,7 @@ const gifts = [
     ribbon: '#43e97b',
     emoji: '🍰',
     image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=500&fit=crop',
-    title: 'Sweet Memories',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+18',
     message:
       'Remember all the cakes we destroyed, the candles we blew out together, the wishes we made? Every birthday with you is sweeter than the last. 🍰🎂',
   },
@@ -171,7 +171,7 @@ const gifts = [
     ribbon: '#fee140',
     emoji: '🌙',
     image: 'https://images.unsplash.com/photo-1503891046810-b80d75dc686d?w=500&h=500&fit=crop',
-    title: 'Midnight Talks',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+19',
     message:
       'Our midnight conversations, the secrets shared under the blanket, the whispered laughs — those are the moments I treasure most. Never stop talking to me. 🌙💫',
   },
@@ -181,7 +181,7 @@ const gifts = [
     ribbon: '#a8c0ff',
     emoji: '🛡️',
     image: 'https://images.unsplash.com/photo-1523365335684-37898b6baf30?w=500&h=500&fit=crop',
-    title: 'Your Protector',
+      image: 'https://via.placeholder.com/500x500/888888/ffffff?text=Gift+20',
     message:
       'I may annoy you, tease you, and drive you crazy — but let anyone else try, and they will have to deal with me. I will always protect you. Always. 🛡️⚔️💖',
   },
